@@ -5,7 +5,7 @@ A php sql generator.
 
 ```php
 	
-	$sqlgen = new sqlgen();
-	$sql = $sqlgen->setTable("users_table")->select("*")->where("username=:username AND password=:password")->get();
+$sqlgen = new sqlgen();
+$sql = $sqlgen->setTable("users_table")->select("*")->where("username=:username AND password=:password")->get();
 
 ```
