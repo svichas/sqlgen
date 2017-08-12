@@ -97,6 +97,7 @@ class sqlgen {
 
 	public function get() {
 		$sql = $this->constructSQL();
+		$this->resetVars();
 		return $sql;
 	}
 
