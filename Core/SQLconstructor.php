@@ -23,8 +23,11 @@ class SQLconstructor {
 			$order = " ORDER BY {$sql_order}";
 		}
 
+		if (!empty($sql_where)) {
+			$sql_where = "WHERE " . $sql_where;
+		}
 
-		$sql_base = "SELECT {$sql_select} FROM {$sql_table} WHERE {$sql_where}{$order}{$limit};";
+		$sql_base = "SELECT {$sql_select} FROM {$sql_table} {$sql_where}{$order}{$limit};";
 
 		return $sql_base;
 
@@ -45,6 +48,10 @@ class SQLconstructor {
 			$order = " ORDER BY {$sql_order}";
 		}
 
+		if (!empty($sql_where)) {
+			$sql_where = "WHERE " . $sql_where;
+		}
+
 		//construct update
 		$update = "";
 		if (count($sql_update)) {
@@ -52,7 +59,7 @@ class SQLconstructor {
 			$update = "SET ". $update;
 		}
 
-		$sql_base = "UPDATE {$sql_table} {$update} WHERE {$sql_where}{$order}{$limit};";
+		$sql_base = "UPDATE {$sql_table} {$update} {$sql_where}{$order}{$limit};";
 
 		return $sql_base;
 	}
@@ -100,8 +107,11 @@ class SQLconstructor {
 			$order = " ORDER BY {$sql_order}";
 		}
 
+		if (!empty($sql_where)) {
+			$sql_where = "WHERE " . $sql_where;
+		}
 
-		$sql_base = "DELETE FROM {$sql_table} WHERE {$sql_where}{$order}{$limit};";
+		$sql_base = "DELETE FROM {$sql_table} {$sql_where}{$order}{$limit};";
 
 		return $sql_base;
 

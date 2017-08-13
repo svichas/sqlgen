@@ -79,7 +79,7 @@ class sqlgen {
 		if ($this->sql_type == "INSERT") return true;
 
 		$query = $this->prepare($sql);
-		if ($query->execute($this->bindValue)) {
+		if ($query->execute($this->sql_bindValues)) {
 			if ($query->rowCount()) {
 				return $query->fetchAll();
 			} else {
